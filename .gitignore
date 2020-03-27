@@ -1,0 +1,10 @@
+~*.*
+*.*~
+#*.*
+*.*#
+
+# ignore executable
+runfile
+
+# ignore *.o files
+*.o
