@@ -3,6 +3,8 @@
 
 using namespace std;
 
+const int MAX_PERSONER = 15;
+
 class Person
 {
 private:
@@ -19,7 +21,7 @@ public:
     void skrivUt();
 };
 
-class PersonLista
+/* class PersonLista
 {
 private:
     int antal_pers;
@@ -35,12 +37,20 @@ public:
     bool finnsPerson(const string &namn);
 };
 
-int nummer;
-int main(){
-    cout << "testfil 1:  " << endl;
-    cout << "Ange nummer:  ";
-    cin >> nummer;
-    cout << "Plus 2: " << nummer + 2 << endl;
+ */
+int main()
+{
+    Person ppl[MAX_PERSONER];
+    Person *p;
+    p = new Person("Roger", 200, 100);
+    cout << p->haemta_namn() << '\n';
+    delete p;
+    p = NULL;
+    if (p == NULL)
+        cout << "Borttagen" << endl;
+    else 
+        cout << "Ej NULL!" << '\n';
+
     return 0;
 }
 
@@ -75,7 +85,7 @@ void Person::skrivUt()
         cout << " Skall betala " << -diff << " till potten!" << endl;
 }
 
-PersonLista::PersonLista()
+/* PersonLista::PersonLista()
 {
     for (int i = 0; i < MAX_PERSONER; i++)
         pers[i] = 0;
@@ -93,7 +103,7 @@ void PersonLista::skrivUtOchFixa()
     int i = 0;
     while (pers[i] != 0)
     {
-        pers[i]->skrivUt();
+        *pers[i]->skrivUt();
         i++;
     }
 
@@ -128,4 +138,4 @@ bool PersonLista::finnsPerson(const string &namn)
             hittad = true;
     }
     return hittad;
-}
+} */
