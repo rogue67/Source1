@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.10)
 
 # set the project name
-project(Tutorial VERSION 1.0)
+project(my_test_project LANGUAGES CXX)
 
-# add the executable
-add_executable(testNClass testNClass.cpp)
+# enable testing support
+enable_testing()
+
+#Add sub directories
+add_subdirectory (lib)
+add_subdirectory (demo)
