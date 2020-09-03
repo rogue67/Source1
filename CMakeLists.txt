@@ -1,11 +1,16 @@
-cmake_minimum_required(VERSION 3.10)
+# set minimum cmake version
+cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
-# set the project name
-project(my_test_project LANGUAGES CXX)
+# project name and language
+project(resa LANGUAGES CXX)
 
-# enable testing support
-enable_testing()
+# generate a library from sources
+add_library(resemanager
+  STATIC
+    resekostnad.h
+    resekostnad.cpp
+  )
 
-#Add sub directories
-add_subdirectory (lib)
-add_subdirectory (demo)
+add_executable(testNClass testNClass.cpp)
+
+target_link_libraries(testNClass resemanager)
