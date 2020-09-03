@@ -71,9 +71,8 @@ private:
     int antal_trans;
 
 public:
-    TransaktionsLista(const int &n);
+    TransaktionsLista();
     ~TransaktionsLista();
-    Transaktion& operator=( const Transaktion& t);
     int antalTrans();
     void laesin(istream &is);
     void skrivut(ostream &os);

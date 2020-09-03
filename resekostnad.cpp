@@ -215,10 +215,9 @@ void Transaktion::skrivEnTrans(ostream &fout)
     }
 }
 
-TransaktionsLista::TransaktionsLista(const int &n)
+TransaktionsLista::TransaktionsLista()
 {
     antal_trans = 0;
-    trans = new Transaktion[n];
     trans = nullptr;
 }
 

@@ -35,5 +35,6 @@ int main()
         count++;
     } while (getline(fin, slaskStr)); */
     cout << count << endl;
+    tl = new TransaktionsLista(count);
     return 0;
 }
