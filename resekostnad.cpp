@@ -130,7 +130,7 @@ bool PersonLista::finnsPerson(const string &namn)
             hittad = true;
     }
     return hittad;
-}
+}*/
 
 Transaktion::Transaktion()
 {
@@ -140,7 +140,7 @@ Transaktion::Transaktion()
     belopp = 0.0;
     ant_kompisar = 0;
     kompisar = 0;
-} */
+} 
 
 Transaktion::~Transaktion()
 {
