@@ -7,6 +7,7 @@ using namespace std;
 
 class Person
 {
+   typedef Person *Person_ptr; 
 private:
     string namn;
     double betalat_andras; // ligger ute med totalt
@@ -16,7 +17,7 @@ public:
     Person();
     Person(string n, double b, double s);
     ~Person();
-    Person& operator=( const Person& p);
+    Person &operator=(const Person &p);
     string haemta_namn();
     double haemta_betalat();
     double haemta_skyldig();
@@ -43,6 +44,7 @@ public:
 
 class Transaktion
 {
+    
 private:
     string datum;
     string typ;
@@ -54,7 +56,7 @@ private:
 public:
     Transaktion();
     ~Transaktion();
-    Transaktion& operator=( const Transaktion& t);
+    Transaktion &operator=(const Transaktion &t);
     string haemta_namn();
     double haemta_belopp();
     int haemta_ant_kompisar();

@@ -140,13 +140,13 @@ Transaktion::Transaktion()
     belopp = 0.0;
     ant_kompisar = 0;
     kompisar = 0;
-} 
+}
 
 Transaktion::~Transaktion()
 {
     delete[] kompisar;
+    kompisar = nullptr;
 }
-
 Transaktion &Transaktion::operator=(const Transaktion &t)
 {
     if (this != &t)
@@ -199,10 +199,15 @@ void Transaktion::haemta_kompisar(string _kompisar[])
 bool Transaktion::laesEnTrans(istream &fin)
 {
     bool filslut = fin.eof();
+    string st;
     fin >> datum >> typ >> namn >> belopp >> ant_kompisar;
     kompisar = new string[ant_kompisar];
     for (int k = 0; k < ant_kompisar; k++)
-        fin >> kompisar[k];
+    {
+        fin >> st;
+        kompisar[k] = st;
+    }
+
     return !filslut;
 }
 
@@ -251,10 +256,22 @@ void TransaktionsLista::skrivut(ostream &os)
 }
 
 void TransaktionsLista::laggTill(Transaktion &t)
-{
-    trans[antal_trans] = t;
+{  
+    
+    Transaktion *pt;
+    pt = new Transaktion[antal_trans + 1];
+    if (antal_trans > 0)
+    {
+        for (int j = 0; j < antal_trans; j++)
+            pt[j] = trans[j];
+        pt[antal_trans] = t;
+    }
+    else
+        pt[0] = t;
+    delete[] trans;
+    trans = pt;
     antal_trans++;
-}
+ }
 
 double TransaktionsLista::totalkostnad()
 {
